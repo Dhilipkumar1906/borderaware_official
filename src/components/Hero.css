@@ -1,0 +1,177 @@
+/* Background video container */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-video video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Content wrapper */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Sections */
+section {
+  padding: 80px 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 12px;
+
+  /* transparent glass effect */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: #fff;
+  text-align: center;
+}
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url('./ocean-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+ object-fit: cover;
+  filter: brightness(90%); /* already darkening */
+}
+
+/* Dark overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust 0.4 for darkness */
+  z-index: 1;
+}
+
+/* Scroll animation */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay Box */
+.hero-overlay {
+  position: absolute;
+  bottom: 40px; /* Adjust placement */
+  left: 0;
+  width: 100%;
+  height: 2cm;
+  background: rgba(0, 0, 0, 0.6); /* rgba transparent box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeSlide 2s ease-in-out;
+}
+
+.hero-overlay p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 20px;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+/* Animation for box entrance */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for text glow effect */
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+  }
+  100% {
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+  }
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.5);
+}
+
+.btn.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.8);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid #00c6ff;
+}
+
+.btn.secondary:hover {
+  background: rgba(0, 198, 255, 0.2);
+  transform: scale(1.05);
+}
+.hero-content {
+  position: absolute;
+  top: 5%; /* adjust this value to move up/down */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}

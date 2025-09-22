@@ -1,0 +1,257 @@
+:root{
+  --accent: #00bfa6;
+  --bg: #071226;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+  --card-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  --max-width: 1100px;
+}
+
+/* basics */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:#e8f0f6;
+  background:linear-gradient(180deg,#020617 0%, #071226 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:28px;
+}
+
+/* NAV */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(3,6,10,0.6), rgba(3,6,10,0.35));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:12px 0;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:46px;height:46px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent),#00a3e0);
+  font-weight:700;
+  box-shadow: var(--card-shadow);
+}
+.title{font-weight:700;font-size:1rem}
+.subtitle{font-size:0.75rem;color:rgba(255,255,255,0.6)}
+
+/* nav links */
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-link{
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;
+}
+.nav-link:hover{background:var(--glass); color:white}
+.nav-link.active{
+  background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  color:var(--accent);
+}
+
+/* HERO */
+.hero{
+  min-height: 72vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+}
+.hero-overlay{
+  position:absolute;inset:0;background:linear-gradient(to bottom, rgba(3,6,10,0.45), rgba(2,6,23,0.65));
+}
+.hero-content{position:relative;z-index:2;padding-top:40px;padding-bottom:40px}
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  padding:28px;
+  border-radius:14px;
+  box-shadow: var(--card-shadow);
+  max-width:860px;
+}
+.hero-card h1{
+  margin:0 0 8px 0;font-size:1.35rem;line-height:1.15;
+}
+.tagline{color:var(--accent);font-weight:700;margin:8px 0}
+.intro{color:rgba(255,255,255,0.85);margin:12px 0 18px 0}
+
+/* buttons */
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#00a3e0);
+  color:#042025;font-weight:700;text-decoration:none;margin-right:10px;
+}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+
+/* sections */
+.section{padding:64px 0;border-top:1px solid rgba(255,255,255,0.02)}
+.section h2{margin:0 0 14px 0;font-size:1.25rem}
+.lead{color:rgba(255,255,255,0.85);max-width:900px}
+
+/* features grid */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+.feature-item{
+  display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:12px;background:var(--glass-2);
+  border:1px solid rgba(255,255,255,0.02);
+}
+.feature-icon{
+  min-width:40px;min-height:40px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#00a3e0);
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:#021817;
+}
+
+/* steps & benefits */
+.steps{margin-top:12px;max-width:720px;padding-left:18px}
+.steps li{margin-bottom:10px}
+.benefits-list{list-style:disc;padding-left:18px;margin-top:12px}
+
+/* footer */
+.site-footer{padding:20px 0;margin-top:30px;border-top:1px solid rgba(255,255,255,0.03)}
+.small{opacity:0.6;font-size:0.85rem}
+
+/* responsive */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .hero-card{padding:20px}
+  .container{padding:18px}
+}
+/* Background video container */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-video video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Content wrapper */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Sections */
+section {
+  padding: 80px 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 12px;
+
+  /* transparent glass effect */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: #fff;
+  text-align: center;
+}
+.about-section {
+  padding: 80px 20px;
+  background: #071427;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  flex: 1;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.about-text {
+  flex: 1;
+  color: #eee;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: #00e0ff;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  background: url("../assets/ocean-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1.2s ease;
+}
+
+.about-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #00e0ff;
+  text-align: center;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
